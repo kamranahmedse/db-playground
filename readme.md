@@ -12,8 +12,7 @@ in PostgreSQL, MySQL, PostgreSQL and more.
 
 Make sure you have [Docker](https://docs.docker.com/get-docker/) installed and running.
 
-After that, you can clone the repository and run the following commands to setup any database with
-sample [Northwind](https://en.wikiversity.org/wiki/Database_Examples/Northwind) data.
+After that, you can clone the repository and run the following commands to setup any database.
 
 ```shell
 # See what you can do with playground
