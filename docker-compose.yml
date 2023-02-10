@@ -1,0 +1,50 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:13.2
+    container_name: db_playground_postgres
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: northwind
+    volumes:
+      - ./postgres/dataset/northwind.sql:/docker-entrypoint-initdb.d/northwind.sql
+      - db_playground_pgdata:/var/lib/postgresql/data
+    ports:
+      - "6432:5432"
+
+  mysql:
+    image: mysql:8
+    container_name: db_playground_mysql
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: northwind
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./mysql/dataset:/docker-entrypoint-initdb.d
+      - db_playground_mysqldata:/var/lib/mysql
+    ports:
+      - "4306:3306"
+
+  mongo:
+    image: mongo:6.0
+    container_name: db_playground_mongo
+    environment:
+      MONGO_INITDB_DATABASE: northwind
+    volumes:
+      - db_playground_mongodata:/data/db
+    ports:
+      - "37017:27017"
+  mongo-seed:
+    build: mongodb
+    container_name: db_pg_mongo_seed
+    environment:
+      - DB_NAME=northwind
+    links:
+      - mongo
+
+volumes:
+  db_playground_pgdata:
+  db_playground_mysqldata:
+  db_playground_mongodata:
