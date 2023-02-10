@@ -2,7 +2,7 @@
 
 > Setup any database playground with sample data in seconds
 
-The repository has a simple docker-compose file and a few scripts to setup a database playground with sample data in
+The repository has a simple docker-compose file and a few scripts to set up any database playground with sample data in
 seconds. It is a great way to test your database queries and learn about the database.
 
 You can run a single command to setup [Northwind](https://en.wikiversity.org/wiki/Database_Examples/Northwind) dataset
