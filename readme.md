@@ -57,8 +57,8 @@ Given below are the default configuration for the databases.
 Following are the details to connect to the database
 
 ```text
-Host: localhost
-Port: 6432
+Host:     localhost
+Port:     6432
 Username: admin
 Password: admin
 Database: northwind
@@ -73,8 +73,8 @@ docker exec -it db_playground_postgres psql -U admin -d northwind
 Following are the details to connect to the database
 
 ```text
-Host: localhost
-Port: 4306
+Host:     localhost
+Port:     4306
 Username: admin
 Password: admin
 Database: northwind
@@ -89,8 +89,8 @@ docker exec -it db_playground_mysql mysql -uadmin -padmin
 Following are the details to connect to MongoDB
 
 ```text
-Host: localhost
-Port: 37017
+Host:     localhost
+Port:     37017
 Database: northwind
 ```
 
