@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-readonly SERVICES_LIST="mongo | postgres | mysql | all"
+readonly SERVICES_LIST="mongo | postgres | mysql | elasticsearch | all"
 readonly DOCKER_COMPOSE_FILE="./docker-compose.yml"
 
 require() {
@@ -18,12 +18,13 @@ Usage:
   -h      - Show this help window
   -s      - Run the given service
 Examples:
-  playground.sh -h           # Show this help window
-  playground.sh -c -s mongo  # Clean up and run mongo
-  playground.sh -s postgres  # Run postgres service
-  playground.sh -s mysql     # Run mysql service
-  playground.sh -s all       # Run all services
-  playground.sh -c           # Clean up the data only
+  playground.sh -h                # Show this help window
+  playground.sh -c -s mongo       # Clean up and run mongo
+  playground.sh -s postgres       # Run postgres service
+  playground.sh -s mysql          # Run mysql service
+  playground.sh -s elasticsearch  # Run elasticsearch service
+  playground.sh -s all            # Run all services
+  playground.sh -c                # Clean up the data only
 EOS
 }
 
@@ -83,6 +84,9 @@ if [[ ${option_s:=} ]]; then
   elif [[ $option_s == "mongo" ]]; then
     echo " 🚀  Running mongo service"
     docker-compose -f "${DOCKER_COMPOSE_FILE}" up mongo mongo-seed
+  elif [[ $option_s == "elasticsearch" ]]; then
+    echo " 🚀  Running elasticsearch service"
+    docker-compose -f "${DOCKER_COMPOSE_FILE}" up elasticsearch elasticsearch-seed
   else
     echo " 🚀  Running $option_s service"
     docker-compose -f "${DOCKER_COMPOSE_FILE}" up "$option_s"

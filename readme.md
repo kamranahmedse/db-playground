@@ -25,6 +25,7 @@ After that, you can clone the repository and run the following commands to setup
 # run a single service
 ./playground.sh -s mongo
 ./playground.sh -s posgres
+./playground.sh -s elasticsearch
 
 # clean up the playground
 ./playground.sh -c
@@ -33,6 +34,7 @@ After that, you can clone the repository and run the following commands to setup
 ./playground.sh -c -s all
 ./playground.sh -c -s mongo
 ./playground.sh -c -s posgres
+./playground.sh -c -s elasticsearch
 ```
 
 You can also ue the `docker-compose` command directly to run the services.
@@ -97,6 +99,16 @@ Database: northwind
 You can use the following command to run commands on the database
 ```bash
 docker exec -it db_playground_mongo mongosh
+```
+
+## Elasticsearch
+
+Following are the details to connect to Elasticsearch
+
+```text
+Host:     localhost
+Port:     9200
+Indexes:  omdb, shakespear
 ```
 
 ## Contributing
