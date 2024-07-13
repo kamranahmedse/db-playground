@@ -57,6 +57,12 @@ services:
       - "9200:9200"
       - "9300:9300"
 
+  redis:
+    image: redis:7.2
+    container_name: db_playground_redis
+    ports:
+      - "6379:6379"
+
   elasticsearch-seed:
     build: elasticsearch
     container_name: db_pg_elastic_seed

@@ -11,7 +11,23 @@ You can run a single command to setup [Northwind](https://en.wikiversity.org/wik
 
 Make sure you have [Docker](https://docs.docker.com/get-docker/) installed and running.
 
-After that, you can clone the repository and run the following commands to setup any database.
+After that, you can clone the repository and run any of the available services either using `Makefile` or `playground.sh` script.
+
+### Using Makefile
+
+To spin up any of the services, run the below command in one terminal
+
+```shell
+# run postgres, mysql, mongo, elasticsearch or redis
+make postgres
+```
+
+Once the service is up, you can run the below command in another terminal to connect to the database
+```shell
+make postgres-cli
+```
+
+### Using playground.sh
 
 ```shell
 # See what you can do with playground
@@ -115,6 +131,21 @@ You can use the following command to run commands on the container
 
 ```bash
 docker exec -it db_playground_elasticsearch sh
+```
+
+## Redis
+
+Following are the details to connect to Redis
+
+```text
+Host:     localhost
+Port:     6379
+```
+
+You can use the following command to run commands on the container
+
+```bash
+docker exec -it db_playground_redis redis-cli
 ```
 
 ## Contributing
