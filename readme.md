@@ -15,16 +15,24 @@ After that, you can clone the repository and run any of the available services e
 
 ### Using Makefile
 
-To spin up any of the services, run the below command in one terminal
+To spin up any of the services, run any of the below commands in a terminal
 
 ```shell
-# run postgres, mysql, mongo, elasticsearch or redis
+# run any of the below commands to start the relevant service
 make postgres
+make mysql
+make mongo
+make elasticsearch
+make redis
 ```
 
-Once the service is up, you can run the below command in another terminal to connect to the database
+Once the service is up, you can run the below command in another terminal to connect to the service
 ```shell
 make postgres-cli
+make mysql-cli
+make mongo-cli
+make elasticsearch-cli
+make redis-cli
 ```
 
 ### Using playground.sh
@@ -39,8 +47,10 @@ make postgres-cli
 
 # run a single service
 ./playground.sh -s mongo
+./playground.sh -s mysql
 ./playground.sh -s posgres
 ./playground.sh -s elasticsearch
+./playground.sh -s redis
 
 # clean up the playground
 ./playground.sh -c
@@ -48,8 +58,10 @@ make postgres-cli
 # clean up the playground and run the services
 ./playground.sh -c -s all
 ./playground.sh -c -s mongo
-./playground.sh -c -s posgres
+./playground.sh -c -s postgres
 ./playground.sh -c -s elasticsearch
+./playground.sh -c -s redis
+./playground.sh -c -s mysql
 ```
 
 You can also ue the `docker-compose` command directly to run the services.
